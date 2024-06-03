@@ -13,7 +13,6 @@
 # limitations under the License.
 
 load("@rules_java//java:defs.bzl", "java_import")
-load("//kotlin:js.bzl", "kt_js_import")
 load("//kotlin:jvm.bzl", "kt_jvm_import")
 load("//kotlin/internal:defs.bzl", _KT_COMPILER_REPO = "KT_COMPILER_REPO")
 
@@ -109,19 +108,5 @@ def kt_configure_compiler():
             "reflect",
             "test",
             "script-runtime",
-        ]
-    ]
-
-    #  The Kotlin JS standard libraries. These should be setup in a Toolchain.
-    [
-        kt_js_import(
-            name = "kotlin-%s" % art,
-            jars = [_KT_COMPILER_REPO_PREFIX + "lib/kotlin-%s.jar" % art],
-            srcjar = _KT_COMPILER_REPO_PREFIX + "lib/kotlin-%s-sources.jar" % art,
-            visibility = ["//visibility:public"],
-        )
-        for art in [
-            "test-js",
-            "stdlib-js",
         ]
     ]
