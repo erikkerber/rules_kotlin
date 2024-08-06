@@ -1,2 +1,17 @@
 rule dagger.** io.bazel.kotlin.builder.dagger.@1
 rule com.google.common.** io.bazel.kotlin.builder.guava.@1
+rule com.google.common.** io.bazel.kotlin.builder.guava.common.@1
+rule com.google.base.** io.bazel.kotlin.builder.guava.base.@1
+rule com.google.collect.** io.bazel.kotlin.builder.guava.collect.@1
+rule com.google.primitives.** io.bazel.kotlin.builder.guava.primitives.@1
+rule com.google.graph.** io.bazel.kotlin.builder.guava.graph.@1
+rule com.google.reflect.** io.bazel.kotlin.builder.guava.reflect.@1
+rule com.google.annotations.** io.bazel.kotlin.builder.guava.annotations.@1
+rule com.google.escape.** io.bazel.kotlin.builder.guava.escape.@1
+rule com.google.hash.** io.bazel.kotlin.builder.guava.hash.@1
+rule com.google.io.** io.bazel.kotlin.builder.guava.io.@1
+rule com.google.math.** io.bazel.kotlin.builder.guava.math.@1
+rule com.google.net.** io.bazel.kotlin.builder.guava.net.@1
+rule com.google.eventbus.** io.bazel.kotlin.builder.guava.eventbus.@1
+rule com.google.util.concurrent.** io.bazel.kotlin.builder.guava.util.concurrent.@1
+rule com.google.util.concurrent.atomic.** io.bazel.kotlin.builder.guava.util.concurrent.atomic.@1

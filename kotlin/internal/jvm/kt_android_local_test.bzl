@@ -49,6 +49,5 @@ _ATTRS = _utils.add_dicts(_BASE_ATTRS, _runnable_common_attr_exposed, {
 
 kt_android_local_test = _make_rule(
     implementation = _kt_android_local_test_impl,
-    attrs = _ATTRS,
     additional_toolchains = [_TOOLCHAIN_TYPE, _JAVA_RUNTIME_TOOLCHAIN_TYPE],
 )

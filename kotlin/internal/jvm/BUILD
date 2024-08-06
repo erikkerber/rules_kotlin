@@ -14,11 +14,11 @@
 load("//src/main/starlark/release:packager.bzl", "release_archive")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 
-exports_files(["jetbrains-deshade.jarjar"])
+exports_files(["kotlin-compiler-reshade.jarjar"])
 
 release_archive(
     name = "pkg",
-    srcs = glob(["*.bzl"]) + ["jetbrains-deshade.jarjar"],
+    srcs = glob(["*.bzl"]) + ["kotlin-compiler-reshade.jarjar"],
     src_map = {
         "BUILD.release.bazel": "BUILD.bazel",
     },
