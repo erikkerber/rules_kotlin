@@ -15,16 +15,17 @@
 """
 
 load(
+    "@bazel_tools//tools/build_defs/repo:http.bzl",
+    "http_archive",
+    "http_file",
+    "http_jar",
+)
+load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
+load(
     "//kotlin/internal:defs.bzl",
     _KSP_COMPILER_PLUGIN_REPO = "KSP_COMPILER_PLUGIN_REPO",
     _KT_COMPILER_REPO = "KT_COMPILER_REPO",
 )
-load(
-    "@bazel_tools//tools/build_defs/repo:http.bzl",
-    "http_archive",
-    "http_file",
-)
-load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
 load(":compiler.bzl", "kotlin_compiler_repository")
 load(":ksp.bzl", "ksp_compiler_plugin_repository")
 load(":versions.bzl", "version", _versions = "versions")
@@ -76,6 +77,27 @@ def kotlin_repositories(
         name = "rules_android",
         sha256 = versions.ANDROID.sha256,
         urls = [url.format(version = versions.ANDROID.version) for url in versions.ANDROID.url_templates],
+    )
+
+    maybe(
+        http_jar,
+        name = "kotlinx_serialization_core_jvm",
+        url = "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.6.3/kotlinx-serialization-core-jvm-1.6.3.jar",
+        sha256 = "29c821a8d4e25cbfe4f2ce96cdd4526f61f8f4e69a135f9612a34a81d93b65f1",
+    )
+
+    maybe(
+        http_jar,
+        name = "kotlinx_serialization_json",
+        url = "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-serialization-json/1.6.3/kotlinx-serialization-json-1.6.3.jar",
+        sha256 = "8c0016890a79ab5980dd520a5ab1a6738023c29aa3b6437c482e0e5fdc06dab1",
+    )
+
+    maybe(
+        http_jar,
+        name = "kotlinx_serialization_json_jvm",
+        url = "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.6.3/kotlinx-serialization-json-jvm-1.6.3.jar",
+        sha256 = "d3234179bcff1886d53d67c11eca47f7f3cf7b63c349d16965f6db51b7f3dd9a",
     )
 
     if is_bzlmod:

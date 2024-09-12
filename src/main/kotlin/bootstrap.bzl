@@ -88,6 +88,8 @@ def kt_bootstrap_binary(
             "--add-opens=java.base/java.lang=ALL-UNNAMED",
             "--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
             "--add-opens=jdk.jdeps/com.sun.tools.jdeps=ALL-UNNAMED",
+            "-Xms128m",
+            "-Xmx8096m",
         ],
         main_class = main_class,
         visibility = visibility,
