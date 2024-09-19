@@ -45,6 +45,9 @@ _ATTRS = _utils.add_dicts(_BASE_ATTRS, _runnable_common_attr_exposed, {
     "jacocorunner": attr.label(
         default = Label("@bazel_tools//tools/jdk:JacocoCoverage"),
     ),
+    "_lcov_merger": attr.label(
+        default = Label("@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:Main"),
+    ),
 })
 
 kt_android_local_test = _make_rule(
