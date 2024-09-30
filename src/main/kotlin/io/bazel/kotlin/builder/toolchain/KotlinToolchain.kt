@@ -22,6 +22,7 @@ import io.bazel.kotlin.builder.utils.verified
 import io.bazel.kotlin.builder.utils.verifiedPath
 import org.jetbrains.kotlin.preloading.ClassPreloadingUtils
 import org.jetbrains.kotlin.preloading.Preloader
+import org.jetbrains.kotlin.preloading.ClassCondition
 import java.io.File
 import java.io.PrintStream
 import java.lang.ClassLoader
@@ -217,7 +218,12 @@ class KotlinToolchain private constructor(
         },
         Preloader.DEFAULT_CLASS_NUMBER_ESTIMATE,
         classLoader,
-        null,
+        // null,
+        object: ClassCondition {
+          override fun accept(className: String): Boolean {
+            return className.startsWith("com.google.common.")
+          }
+        }
       )
     }.onFailure {
       throw RuntimeException("$javaHome, $baseJars", it)
