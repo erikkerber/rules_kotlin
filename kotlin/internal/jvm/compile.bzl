@@ -778,6 +778,30 @@ def _run_kt_java_builder_actions(
     has_kt_sources = srcs.kt or srcs.src_jars
     ap_generated_src_jar = None
 
+    # Run KAPT
+    if has_kt_sources and annotation_processors:
+        kapt_outputs = _run_kapt_builder_actions(
+            ctx,
+            rule_kind = rule_kind,
+            toolchains = toolchains,
+            srcs = srcs,
+            associates = associates,
+            compile_deps = compile_deps,
+            deps_artifacts = deps_artifacts,
+            annotation_processors = annotation_processors,
+            transitive_runtime_jars = transitive_runtime_jars,
+            plugins = plugins,
+        )
+        generated_kapt_src_jars.append(kapt_outputs.ap_generated_src_jar)
+        output_jars.append(kapt_outputs.kapt_generated_class_jar)
+        kt_stubs_for_java.append(
+            JavaInfo(
+                compile_jar = kapt_outputs.kapt_generated_stub_jar,
+                output_jar = kapt_outputs.kapt_generated_stub_jar,
+                neverlink = True,
+            ),
+        )
+
     # Run KSP
     if has_kt_sources and ksp_annotation_processors:
         ksp_outputs = _run_ksp_builder_actions(
