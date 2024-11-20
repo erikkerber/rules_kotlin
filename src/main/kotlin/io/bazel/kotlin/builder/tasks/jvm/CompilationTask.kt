@@ -337,7 +337,9 @@ private fun JvmCompilationTask.runKspPlugin(
 
 private fun kspKotlinToolchainVersion(version: String): String {
   // KSP doesn't support Kotlin 2.0 yet, so we need to use 1.9
-  return if (version.toFloat() >= 2.0) "1.9" else version
+  println(version)
+  return "2.1"
+  return if (version.toFloat() >= 2.1) "1.9" else version
 }
 
 /**

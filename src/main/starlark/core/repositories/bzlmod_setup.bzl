@@ -1,6 +1,7 @@
 """Definitions for bzlmod module extensions."""
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:local.bzl", "local_repository")
 load(
     "//src/main/starlark/core/repositories:initialize.release.bzl",
     _kotlin_repositories = "kotlin_repositories",

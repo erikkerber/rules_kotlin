@@ -59,7 +59,7 @@ versions = struct(
         sha256 = "2b3f6f674a944d25bb8d283c3539947bbe86074793012909a55de4b771f74bcc",
     ),
     KOTLIN_CURRENT_COMPILER_RELEASE = version(
-        version = "2.0.10",
+        version = "2.1.0-RC2",
         url_templates = [
             "https://github.com/JetBrains/kotlin/releases/download/v{version}/kotlin-compiler-{version}.zip",
         ],
@@ -96,9 +96,9 @@ versions = struct(
     RULES_KOTLIN = version(
         version = "1.9.0",
         url_templates = [
-            "https://github.com/bazelbuild/rules_kotlin/releases/download/v{version}/rules_kotlin-v{version}.tar.gz",
+            "https://github.com/erikkerber/rules_kotlin/archive/refs/heads/k2-2.1.zip",
         ],
-        sha256 = "5766f1e599acf551aa56f49dab9ab9108269b03c557496c54acaf41f98e2b8d6",
+        sha256 = "43c1e7d200a9962f2826774285c6ca62b070df5d269d84e9d164db681110b078",
     ),
     # needed for rules_pkg and java
     RULES_PYTHON = version(
